@@ -3,21 +3,19 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+      - master
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -26,19 +24,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular App
-        run: npx ng build --configuration production --base-href /
+      - name: Build
+        run: npm run build -- --base-href /
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Copy index.html to 404.html
+        run: cp dist/all-eyes-hostel/browser/index.html dist/all-eyes-hostel/browser/404.html
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          # Якщо в логах Output location закінчується на /dist/all-eyes-hostel, 
-          # то в Angular 18+ файли браузера лежать у /browser
-          path: dist/all-eyes-hostel/browser
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/all-eyes-hostel/browser
+          cname: all-eyes-hostel.itkamianets.com
