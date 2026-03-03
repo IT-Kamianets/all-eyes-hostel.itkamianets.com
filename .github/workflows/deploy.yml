@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
 
 permissions:
   contents: read
@@ -35,6 +35,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Якщо в логах Output location закінчується на /dist/all-eyes-hostel, 
+          # то в Angular 18+ файли браузера лежать у /browser
           path: dist/all-eyes-hostel/browser
 
       - name: Deploy to GitHub Pages
