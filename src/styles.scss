@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+// --- Variables ---
+$dark-steel: #0f172a;
+$muted-grey: #4b5563;
+$white: #ffffff;
+$light-bg: #ffffff;
+$section-bg: #f8fafc;
+$border-color: #e2e8f0;
+
+// --- Dark Theme Overrides ---
+$dark-bg: #0f172a;
+$dark-card: #1e293b;
+$dark-text: #f8fafc;
+$dark-border: #334155;
+
+// --- Bulma Overrides ---
+$primary: $dark-steel;
+$family-serif: 'Playfair Display', serif;
+$family-sans-serif: 'Inter', 'Montserrat', sans-serif;
+$card-radius: 8px;
+
+@import "bulma/bulma.scss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+// --- Base Custom Styling ---
+html, body {
+  background-color: $light-bg;
+  color: #111827;
+  font-family: $family-sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+// STRONGEST OVERRIDE FOR LOGO - ALWAYS WHITE
+h1.logo-text, 
+.hotel-header h1.logo-text,
+#hero h1.title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+}
+
+// Explicitly set text colors for standard elements in light theme
+p, span, li, label, a:not(.button):not(.nav-link):not(.logo-text) {
+  color: #111827;
+}
+
+h1, h2, h3, h4, .title {
+  color: #111827 !important;
+}
+
+// Override for Hero Titles to stay white
+#hero .title, #hero .subtitle, #hero p {
+  color: #ffffff !important;
+}
+
+body.dark-theme {
+  background-color: $dark-bg;
+  color: $dark-text;
+
+  .hotel-header {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom-color: $dark-border;
+  }
+
+  .nav-link { color: $dark-text !important; }
+
+  .apple-card, .icloud-card, .p-6, .accordion-content, .booking-bar {
+    background-color: $dark-card !important;
+    color: $dark-text !important;
+    border-color: $dark-border !important;
+  }
+  
+  .title, .subtitle, p, span, h1, h2, h3, h4, li, label, a:not(.button) {
+    color: $dark-text !important;
+  }
+
+  .bg-neutral {
+    background-color: #111827 !important;
+    border-top-color: $dark-border;
+    border-bottom-color: $dark-border;
+  }
+
+  .hotel-bottom-nav {
+    background: #0f172a;
+    border-top-color: $dark-border;
+    .nav-item { 
+        color: $dark-text !important; 
+        i, span { color: $dark-text !important; }
+    }
+  }
+  
+  input, select, .select select {
+    background-color: #1e293b;
+    color: white;
+    border-color: $dark-border;
+  }
+
+  .room-card {
+    background-color: #1e293b !important;
+    border: 1px solid $dark-border;
+  }
+}
+
+// Minimalist Header (Dark background to make white logo visible)
+.hotel-header {
+    background: #0f172a !important; 
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    margin: 0 1rem;
+    transition: opacity 0.3s, color 0.3s;
+    &:hover { opacity: 0.7; }
+}
+
+.theme-toggle, .lang-toggle {
+  color: #ffffff !important;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  &:hover { opacity: 0.7; }
+}
+
+// Mobile Nav Logic
+.hotel-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid $border-color;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 0;
+  z-index: 2000;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
+
+  .nav-item {
+    color: #111827;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-decoration: none;
+    i { font-size: 1.2rem; margin-bottom: 3px; }
+  }
+}
+
+// Enhanced Room Section
+.bg-neutral { 
+  background-color: #f1f5f9; 
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+.room-card {
+  background: white;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  
+  .room-image-container {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .room-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+  }
+
+  .room-content {
+    padding: 2.5rem; // Increased padding for better spacing
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+    
+    .room-image {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.room-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 5rem;
+  h2 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; }
+  p { color: $muted-grey; text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.85rem; font-weight: 600; }
+}
+
+.hover-accent:hover {
+  color: #3b82f6 !important;
+}
