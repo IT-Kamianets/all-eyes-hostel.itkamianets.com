@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
 import { HeroComponent } from './components/hero/hero';
 import { RoomsComponent } from './components/rooms/rooms';
@@ -12,7 +13,8 @@ import { FooterComponent } from './components/footer/footer';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
+    RouterOutlet,
     HeaderComponent,
     HeroComponent,
     RoomsComponent,
@@ -25,6 +27,7 @@ import { FooterComponent } from './components/footer/footer';
     <app-header></app-header>
     
     <main class="main-content-wrapper">
+      <router-outlet></router-outlet>
       <app-hero></app-hero>
       <app-rooms></app-rooms>
       <app-gallery></app-gallery>
