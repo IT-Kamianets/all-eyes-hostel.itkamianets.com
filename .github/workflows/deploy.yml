@@ -34,7 +34,10 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npx ng build --base-href / --ssr false --prerender false
+        run: npx ng build --base-href /
+
+      - name: Create 404 page
+        run: cp dist/all-eyes-hostel/browser/index.html dist/all-eyes-hostel/browser/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -32,7 +32,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles.scss"],
+            "ssr": false,
+            "prerender": false
           },
           "configurations": {
             "production": {
