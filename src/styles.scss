@@ -20,8 +20,8 @@ $family-serif: 'Playfair Display', serif;
 $family-sans-serif: 'Inter', 'Montserrat', sans-serif;
 $card-radius: 8px;
 
-@import "bulma/bulma.scss";
-@import "@fortawesome/fontawesome-free/css/all.min.css";
+@use "bulma/bulma.scss";
+@use "@fortawesome/fontawesome-free/css/all.min.css";
 
 // --- Base Custom Styling ---
 html, body {

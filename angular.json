@@ -33,6 +33,7 @@
               }
             ],
             "styles": ["src/styles.scss"],
+            "polyfills": [],
             "ssr": false,
             "prerender": false
           },
