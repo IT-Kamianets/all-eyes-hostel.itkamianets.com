@@ -43,7 +43,7 @@ import { LanguageService } from '../../services/language';
           </div>
 
           <div class="has-text-grey-light" style="font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.6; text-transform: uppercase;">
-            &copy; 2026 ALL EYES HOSTEL. {{ lang.t().footer.copyright }}
+            &copy; 2026 ALL EYES HOSTELL. {{ lang.t().footer.copyright }}
           </div>
         </div>
       </div>
