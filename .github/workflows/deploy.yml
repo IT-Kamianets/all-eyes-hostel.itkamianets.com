@@ -28,7 +28,7 @@ jobs:
         run: npm run build -- --base-href /
 
       - name: Copy index.html 
-        run: cp dist/all-eyes-hostel/browser/index.html 
+        run: cp dist/all-eyes-hostel/browser/index.html dist/all-eyes-hostel/browser/404.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
