@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build -- --base-href /
+        run: npm run build -- --base-href /all-eyes-hostel/
 
       - name: Create 404 page
         run: cp dist/all-eyes-hostel/browser/index.html dist/all-eyes-hostel/browser/404.html
