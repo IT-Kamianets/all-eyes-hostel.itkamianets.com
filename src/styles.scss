@@ -85,7 +85,9 @@ body.dark-theme {
     border-top-color: $dark-border;
     .nav-item { 
         color: $dark-text !important; 
+        background: none !important;
         i, span { color: $dark-text !important; }
+        &:active, &:focus { background: none !important; }
     }
   }
   
@@ -119,7 +121,11 @@ body.dark-theme {
     letter-spacing: 0.12em;
     margin: 0 1rem;
     transition: opacity 0.3s, color 0.3s;
+    background: none !important;
+    outline: none !important;
+
     &:hover { opacity: 0.7; }
+    &:active, &:focus { background: none !important; color: #ffffff !important; }
 }
 
 .theme-toggle, .lang-toggle {
@@ -155,7 +161,11 @@ body.dark-theme {
     font-size: 0.65rem;
     font-weight: 600;
     text-decoration: none;
+    background: none !important;
+    outline: none !important;
     i { font-size: 1.2rem; margin-bottom: 3px; }
+
+    &:active, &:focus { background: none !important; }
   }
 }
 
