@@ -33,7 +33,7 @@
               }
             ],
             "styles": ["src/styles.scss"],
-            "polyfills": [],
+            "polyfills": ["zone.js"],
             "ssr": false,
             "prerender": false
           },
